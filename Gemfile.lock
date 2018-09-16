@@ -219,6 +219,7 @@ DEPENDENCIES
   puma (~> 3.7)
   rails (~> 5.1.6)
   randumb
+  redis (~> 4.0)
   sass-rails (~> 5.0)
   sidekiq
   spring
