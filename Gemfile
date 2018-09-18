@@ -10,6 +10,7 @@ gem 'figaro'
 gem 'randumb'
 gem 'typhoeus'
 gem 'sidekiq'
+gem 'sidekiq-scheduler'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.6'
 # Use postgresql as the database for Active Record

@@ -4,3 +4,6 @@ production:
   :concurrency: 5
 :queues:
   - default
+:schedule:
+  cron: '0 * * * * *'
+  class: DailyTweetWorker
