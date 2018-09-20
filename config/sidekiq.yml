@@ -7,4 +7,4 @@ production:
 :schedule:
   DailyTweetWorker:
     class: DailyTweetWorker
-    cron: "* * * * *"
+    cron: "30 7 * * *"
