@@ -1,16 +1,11 @@
 module Services
   class Bot
 
-    def send_tweet
-      twitter.update(obtain_fact)
+    def tweet_todays_fact
+      twitter.update(fact_for_today)
+      fact_for_today
     end
 
-    def obtain_fact
-      month = Date.today.month
-      day = Date.today.day
-      res = Typhoeus.get("http://numbersapi.com/#{month}/#{day}/date")
-      res.body
-    end
 
     private
 
@@ -21,6 +16,14 @@ module Services
         config.access_token        = ENV['access_token']
         config.access_token_secret = ENV['access_secret']
       end
+    end
+
+    def fact_for_today
+      @fact_for_today ||= numbers_client.fact_for_today
+    end
+
+    def numbers_client
+      @numbers_client ||= Services::Integration::Numbers.new
     end
   end
 end

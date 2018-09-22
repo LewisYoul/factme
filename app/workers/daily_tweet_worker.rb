@@ -4,7 +4,6 @@ class DailyTweetWorker
   include Sidekiq::Worker
 
   def perform
-    Bot.send_tweet
-    puts 'im a worker that worked'
+    Bot.tweet_todays_fact
   end
 end
