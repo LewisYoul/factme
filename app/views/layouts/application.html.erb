@@ -2,11 +2,23 @@
 <html>
   <head>
     <title>Factme</title>
+    <meta name="viewport" content="width=device-width, inital-scale=1.0">
+
+    <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
+  <script src="https://use.fontawesome.com/c5e8a6b4a9.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Bubbler+One" rel="stylesheet">
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
+
+  <div class="container flex-grid">
+    <div class="nav-col-left col"><h5>Home</h5></div>
+    <div class="col"><h5>About</h5></div>
+    <div class="nav-col-right col"><h5>Blog</h5></div>
+  </div>
 
   <body>
     <%= yield %>
