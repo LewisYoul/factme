@@ -11,8 +11,10 @@ RSpec.describe Services::Bot do
     class_double(Services::Integration::Numbers).as_stubbed_const
   end
   let(:numbers_client) do
-    instance_double(Services::Integration::Numbers, fact_for_today: 'fact')
+    instance_double(Services::Integration::Numbers, fact_for_today: fact)
   end
+
+  let(:fact) { 'fact' }
 
   before do
     allow(twitter_class).to receive(:new).and_return(twitter_client)
@@ -42,6 +44,17 @@ RSpec.describe Services::Bot do
       described_class.new.tweet_todays_fact
 
       expect(twitter_client).to have_received(:update)
+    end
+
+    it 'creates a new Tweet record' do
+      expect { described_class.new.tweet_todays_fact }
+        .to change { Tweet.count }.from(0).to(1)
+    end
+
+    it 'sets the fact returned from the numbers API as the text attribute' do
+      described_class.new.tweet_todays_fact
+
+      expect(Tweet.last.text).to eq(fact)
     end
 
     it 'returns the fact that was tweeted' do

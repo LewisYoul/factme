@@ -3,6 +3,7 @@ module Services
 
     def tweet_todays_fact
       twitter.update(fact_for_today)
+      Tweet.create(text: fact_for_today)
       fact_for_today
     end
 
