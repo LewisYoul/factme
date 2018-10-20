@@ -1,5 +1,22 @@
+ /*
+ *= require_tree .
+ *= require_self
+ */
+
 body {
   background-color: #dbdbdb;
+}
+
+a {
+  font-size: 20px;
+}
+
+h1 {
+  font-size: 60px;
+}
+
+div.center-align {
+  text-align: center;
 }
 
 h1, h2, h3, h4, h5, a {
