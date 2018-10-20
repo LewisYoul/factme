@@ -2,16 +2,29 @@ body {
   background-color: #dbdbdb;
 }
 
-h1, h2, h3, h4, h5 {
+h1, h2, h3, h4, h5, a {
   font-family: 'Roboto Slab', serif;
 }
 
 .container {
   max-width: 960px;
+  margin: 0 auto;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .nav {
   height: 5vh;
+}
+
+.nav-button {
+  color: black;
+  display: block;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
 }
 
 .flex-grid {
@@ -23,12 +36,4 @@ h1, h2, h3, h4, h5 {
   text-align: center;
   padding: 8px;
   background-color: white;
-}
-
-.nav-col-left {
-  border-radius: 0px 0px 0px 10px;
-}
-
-.nav-col-right {
-  border-radius: 0px 0px 10px 0px;
 }
