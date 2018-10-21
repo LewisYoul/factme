@@ -15,9 +15,9 @@
   </head>
 
   <div class="container flex-grid">
-    <div class="col"><%= link_to 'Home', root_path, class: 'nav-button' %></div>
-    <div class="col"><%= link_to 'About', root_path, class: 'nav-button' %></div>
-    <div class="col"><%= link_to 'Blog', root_path, class: 'nav-button' %></div>
+    <div class="col"><%= link_to('Home', root_path, class: 'nav-button') %></div>
+    <div class="col"><%= link_to('About', about_index_url, class: 'nav-button') %></div>
+    <div class="col"><%= link_to('Blog', root_path, class: 'nav-button') %></div>
   </div>
 
   <body>
