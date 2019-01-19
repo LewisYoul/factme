@@ -1,1 +1,8 @@
 <h1>blog</h1>
+
+<% @posts.each do |post| %>
+  <h1><%= post.title %></h1>
+  <p><%= post.body_one %></p>
+  <script src="<%= post.gist %>"></script>
+  <p><%= post.body_two %></p>
+<% end %>
