@@ -8,7 +8,10 @@
 
 <div class="container content padding flex-grid">
   <div class="col">
-  <h2>Recent Blog Posts</h2>
+    <h2>Recent Blog Posts</h2>
+    <% @recent_posts.each do |post| %>
+      <h5><%= post.title %></h3>
+    <% end %>
   </div>
   <div class="col">
   <h2>Twitter Feed</h2>
