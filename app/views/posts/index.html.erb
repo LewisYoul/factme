@@ -7,7 +7,9 @@
       <h1><%= post.title %></h1>
     </div>
     <p><%= post.body_one %></p>
-    <script src="<%= post.gist %>"></script>
+    <div class="gist-wrapper">
+      <script src="<%= post.gist %>"></script>
+    </div>
     <p><%= post.body_two %></p>
   </div>
 <% end %>

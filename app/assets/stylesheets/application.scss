@@ -11,7 +11,7 @@ a {
 }
 
 h1 {
-  font-size: 60px;
+  font-size: 42px;
   margin: 10px;
 }
 
@@ -62,4 +62,9 @@ h1, h2, h3, h4, h5, a {
   flex: 1;
   text-align: center;
   padding: 8px;
+}
+
+p {
+  color: grey;
+  font-family: 'Times New Roman', Times, serif;
 }
