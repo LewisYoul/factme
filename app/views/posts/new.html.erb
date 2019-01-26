@@ -1,0 +1,13 @@
+<h1> New Post </h1>
+
+<%= form_for(@post, url: { action: :create }) do |form| %>
+  <%= form.label(:title) %>
+  <%= form.text_field(:title) %>
+  <%= form.label(:body_one) %>
+  <%= form.text_field(:body_one) %>
+  <%= form.label(:gist) %>
+  <%= form.text_field(:gist) %>
+  <%= form.label(:body_two) %>
+  <%= form.text_field(:body_two) %>
+  <%= form.submit %>
+<% end %>
