@@ -68,3 +68,15 @@ p {
   color: grey;
   font-family: 'Times New Roman', Times, serif;
 }
+
+input.test {
+  width: 120px;
+  border-radius: 5px;
+  background-color: #6eddaf;
+  padding: 10px;
+  &:hover {
+    background-color: #7af482;
+  }
+}
+
+// https://www.color-hex.com/color-palette/71927
