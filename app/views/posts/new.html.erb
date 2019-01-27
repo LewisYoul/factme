@@ -4,6 +4,8 @@
   <%= form_for(@post, url: { action: :create }) do |form| %>
     <%= form.label(:title) %>
     <%= form.text_field(:title, class: 'input') %>
+    <%= form.label(:synopsis) %>
+    <%= form.text_field(:synopsis, class: 'input') %>
     <%= form.label(:body_one) %>
     <%= form.text_area(:body_one, class: 'body-input') %>
     <%= form.label(:gist, 'Gist URL') %>
