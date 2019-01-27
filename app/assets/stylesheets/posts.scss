@@ -2,9 +2,35 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-div.post-title {
-  margin: 30px;
+div.synopsis-wrapper {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  margin-right: 60px;
+  margin-left: 60px;
+}
+
+div.title {
+  margin-top: 60px;
+  margin-bottom: 60px;
   text-align: center;
+}
+
+div.post-title {
+  margin-left: 15px;
+  margin-bottom: 15px;
+}
+
+div.post-synopsis {
+  margin-left: 15px;
+  margin-top: 15px;
+}
+
+div.date-synopsis {
+  margin-left: 15px;
+  p {
+    font-family: 'Roboto Slab', serif;
+    color: black;
+  }
 }
 
 div.gist-wrapper {
@@ -15,9 +41,11 @@ div.container {
   padding-bottom: 30px;
 }
 
+h2 {
+  margin: 0px !important;
+}
+
 p {
-  margin-left: 30px;
-  margin-right: 30px;
   font-size: 18px !important;
   line-height: 1.58 !important;
 }
