@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe TemperaturesController, type: :controller do
+RSpec.fdescribe Api::TemperaturesController, type: :controller do
   let(:temperature_params) do
     { 
       temperature: {
