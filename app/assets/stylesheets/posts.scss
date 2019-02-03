@@ -15,9 +15,22 @@ div.title {
   text-align: center;
 }
 
-div.post-title {
+div.show-post-title {
+  margin-top: 80px;
   margin-left: 15px;
-  margin-bottom: 15px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+div.post-title {
+  margin-top: 80px;
+  margin-left: 15px;
+  margin-bottom: 30px;
+}
+
+div.post-body {
+  margin-left: 50px;
+  margin-right: 50px;
 }
 
 div.post-synopsis {
@@ -33,12 +46,18 @@ div.date-synopsis {
   }
 }
 
+div.post-wrapper {
+  padding-left: 60px;
+  padding-right: 60px;
+  padding-bottom: 60px;
+}
+
 div.gist-wrapper {
   margin: 30px;
 }
 
 div.container {
-  padding-bottom: 30px;
+  // padding-bottom: 30px;
 }
 
 h2 {
@@ -50,6 +69,11 @@ p {
   line-height: 1.58 !important;
 }
 
+p.date {
+  padding-top: 25px;
+  padding-bottom: 10px;
+}
+
 .body-input {
   width: 100%;
   height: 100px;
@@ -59,4 +83,9 @@ p {
 .input {
   width: 100%;
   background-color: #f4f4f4;
+}
+
+hr {
+  width: 75%;
+  padding-bottom: 10px;
 }

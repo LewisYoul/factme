@@ -1,10 +1,18 @@
 <div class="container">
-  <div class="post-title">
-    <h1><%= @post.title %></h1>
+  <div class="post-wrapper">
+    <div class="show-post-title">
+      <h1><%= @post.title %></h1>
+      <p class="date"><%= @post.created_at.to_formatted_s(:long_ordinal) %></p>
+    </div>
+    <hr>
+    <div class="post-body">
+      <p><%= simple_format(@post.body_one) %></p>
+    </div>
+    <div class="gist-wrapper">
+      <script src="<%= @post.gist %>"></script>
+    </div>
+    <div class="post-body">
+      <p><%= simple_format(@post.body_two) %></p>
+    </div>
   </div>
-  <p><%= @post.body_one %></p>
-  <div class="gist-wrapper">
-    <script src="<%= @post.gist %>"></script>
-  </div>
-  <p><%= @post.body_two %></p>
 </div>

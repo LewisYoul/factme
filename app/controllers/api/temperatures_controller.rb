@@ -13,7 +13,7 @@ module Api
     private
 
     def temperature_params
-      params.require(:temperature).permit(:temp, :datetime)
+      params.permit(:temperature)
     end
   end
 end
