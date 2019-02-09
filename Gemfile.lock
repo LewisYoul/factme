@@ -165,6 +165,7 @@ GEM
     rb-fsevent (0.10.3)
     rb-inotify (0.9.10)
       ffi (>= 0.5.0, < 2)
+    redcarpet (3.4.0)
     redis (4.0.2)
     rspec-core (3.8.0)
       rspec-support (~> 3.8.0)
@@ -271,6 +272,7 @@ DEPENDENCIES
   rails (~> 5.1.6)
   rails-controller-testing
   randumb
+  redcarpet
   redis (~> 4.0)
   rspec-rails
   sass-rails (~> 5.0)

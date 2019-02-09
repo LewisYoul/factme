@@ -1,3 +1,6 @@
+<% markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, no_intra_emphasis: true, 
+    fenced_code_blocks: true,   
+    disable_indented_code_blocks: true) %>
 <div class="container">
   <div class="post-wrapper">
     <div class="show-post-title">
@@ -6,13 +9,7 @@
     </div>
     <hr>
     <div class="post-body">
-      <p><%= simple_format(@post.body_one) %></p>
-    </div>
-    <div class="gist-wrapper">
-      <script src="<%= @post.gist %>"></script>
-    </div>
-    <div class="post-body">
-      <p><%= simple_format(@post.body_two) %></p>
+      <%= markdown.render(@post.body_one).html_safe %>
     </div>
   </div>
 </div>

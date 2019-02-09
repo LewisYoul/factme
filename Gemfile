@@ -35,6 +35,7 @@ gem 'redis', '~> 4.0'
 gem 'rails-controller-testing'
 gem 'simple_form', '~> 3.2'
 gem 'bootstrap-sass', '~> 3.3'
+gem 'redcarpet'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 gem 'jquery-rails'
