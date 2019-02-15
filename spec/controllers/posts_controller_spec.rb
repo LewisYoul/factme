@@ -31,13 +31,82 @@ RSpec.describe PostsController, type: :controller do
     end
   end
 
+  describe 'GET edit' do
+    let(:post) do 
+      Post.create(title: 'title', synopsis: 'synopsis', body_one: 'body')
+    end
+
+    it 'returns 200 OK' do
+      get :edit, params: { id: post.id }
+
+      expect(response).to have_http_status(:ok)
+    end
+
+    it 'assigns the correct post to be rendered in the view' do
+      get :edit, params: { id: post.id }
+
+      expect(assigns(:post)).to eq(post)
+    end
+
+    it 'renders the EDIT template' do
+      expect(get :edit, params: { id: post.id })
+        .to render_template(:edit)
+    end
+  end
+
+  describe 'PUT update' do
+    let(:post) do 
+      Post.create(title: 'title', synopsis: 'synopsis', body_one: 'body')
+    end
+
+    let(:post_params) do
+      {
+        title: 'Test Title',
+        synopsis: 'Synopsis',
+        body_one: 'Body one'
+      }
+    end
+
+    let(:params) do
+      { 
+        id: post.id,
+        post: post_params
+      }
+    end
+
+    it 'changes the attributes of the given post' do
+      put :update, params: params
+
+      expect(post.reload.attributes.slice('title', 'synopsis', 'body_one').values)
+        .to contain_exactly(
+          post_params[:title],
+          post_params[:synopsis],
+          post_params[:body_one]
+        )
+    end
+
+    it 'redirects to the posts index controller action' do
+      expect(put :update, params: params).to redirect_to(:posts)
+    end
+
+    context 'when the post fails to update' do
+      let(:post_double) { instance_double(Post, update: false) }
+
+      it 're-renders the edit template' do
+        allow(Post).to receive(:find).and_return(post_double)
+
+        expect(put :update, params: params).to render_template(:edit)
+      end
+    end
+
+  end
+
   describe 'POST create' do
     let(:params) do
       {
         title: 'Test Title',
-        body_one: 'Body one',
-        gist: 'gist url',
-        body_two: 'Body two'
+        synopsis: 'Synopsis',
+        body_one: 'Body one'
       }
     end
 

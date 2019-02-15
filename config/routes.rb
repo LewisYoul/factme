@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   resources :about, only: [:index]
   resources :projects, only: [:index]
-  resources :posts, only: [:index, :new, :create, :show]
+  resources :posts, only: [:index, :new, :create, :show, :update, :edit]
   resources :tags, only: [:index, :new, :create]
   
   namespace :api do

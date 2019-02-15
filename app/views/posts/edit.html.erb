@@ -1,0 +1,13 @@
+<div class="container">
+  <h1> Edit Post </h1>
+
+  <%= form_with(model: @post) do |form| %>
+    <%= form.label(:title) %>
+    <%= form.text_field(:title, class: 'input') %>
+    <%= form.label(:synopsis) %>
+    <%= form.text_field(:synopsis, class: 'input') %>
+    <%= form.label(:body_one) %>
+    <%= form.text_area(:body_one, class: 'body-input') %>
+    <%= form.submit(class: 'test') %>
+<% end %>
+</div>
