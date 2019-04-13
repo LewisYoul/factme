@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Factme</title>
+    <title>Lewis Youl - Web Developer</title>
     <meta name="viewport" content="width=device-width, inital-scale=1.0">
 
     <!-- Fonts -->
@@ -13,13 +13,6 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
-  <div class="container flex-grid">
-    <div class="col"><%= link_to('Home', root_path, class: 'nav-button') %></div>
-    <div class="col"><%= link_to('About', about_index_url, class: 'nav-button') %></div>
-    <div class="col"><%= link_to('Blog', posts_url, class: 'nav-button') %></div>
-    <div class="col"><%= link_to('Projects', projects_url, class: 'nav-button') %></div>
-  </div>
 
   <body>
     <%= yield %>

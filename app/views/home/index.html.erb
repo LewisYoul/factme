@@ -1,19 +1,21 @@
-<p id="notice"><%= notice %></p>
+<% if notice %>
+  <p id="notice"><%= notice %></p>
+<% end %>
 
-<div class="container center-align padding">
-  <%= image_tag("profile_pic_square.jpg", class: "profile-pic")%>
-  <h1>Lewis Youl</h1>
-  <h2>Software Engineer</h2>
-</div>
-
-<div class="container content padding flex-grid">
-  <div class="col">
-    <h2>Recent Blog Posts</h2>
-    <% @recent_posts.each do |post| %>
-      <h5><%= link_to(post.title, post_path(post)) %></h3>
-    <% end %>
+<div class="container padding">
+  <div class="center-align">
+    <%= image_tag("profile_pic_square.jpg", class: "profile-pic", title: 'Something might happen if you click here')%>
+    <h1>Lewis Youl</h1>
+    <a href="https://github.com/LewisYoul" class="icon-link"><%= fa_icon "2x github", class: 'icon' %></a>
+    <a href="https://twitter.com/lewisyoul?lang=en-gb" class="icon-link"><%= fa_icon "2x twitter", class: 'icon' %></a>
+    <hr>
   </div>
-  <div class="col">
-  <h2>Twitter Feed</h2>
-  </div>
+  <% @posts.each do |post| %>
+      <div class="synopsis-wrapper">
+        <h2><%= link_to(post.title, post_path(post)) %></h1>
+        <p class="post-synopsis"><%= post.synopsis %></p>
+        <p class="date-synopsis"><strong><%= post.created_at.to_formatted_s(:long_ordinal) %></strong></p>
+        <hr>
+      </div>
+  <% end %>
 </div>

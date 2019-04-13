@@ -1,5 +1,6 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "font-awesome";
 @import "*";
 
 body {
@@ -27,6 +28,15 @@ h1, h2, h3, h4, h5, a {
   font-family: 'Roboto Slab', serif;
 }
 
+.icon {
+  color: #AFD275;
+}
+
+.icon:hover {
+  color: rgb(87, 105, 57);
+  cursor: pointer;
+}
+
 // pre {
 //   background: #002A35!important;
 //   color: #93A1A1!important;
@@ -37,6 +47,7 @@ h1, h2, h3, h4, h5, a {
   max-width: 960px;
   margin: 0 auto;
   margin-bottom: 40px;
+  margin-top: 40px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 

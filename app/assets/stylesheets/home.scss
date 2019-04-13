@@ -3,9 +3,36 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .profile-pic {
-    width: 300px;
-    height: 300px;
+    width: 120px;
+    height: 120;
     border-radius: 50%;
+    border: 1px solid #dbdbdb;
+}
+
+.profile-pic:hover {
+    cursor: pointer;
+}
+
+p.post-synopsis {
+    padding-top: 15px;
+    padding-bottom: 5px;
+}
+
+p.date-synopsis {
+    padding-top: 5px;
+    padding-bottom: 15px;
+}
+
+a {
+    color: rgb(152, 185, 99);
+}
+
+.icon-link {
+    font-size: 15px !important;
+}
+
+a:hover {
+    color: rgb(87, 105, 57)
 }
 
 @media (max-width: 768px) { 
