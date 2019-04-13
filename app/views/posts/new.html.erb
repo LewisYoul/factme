@@ -8,6 +8,7 @@
     <%= form.text_field(:synopsis, class: 'input') %>
     <%= form.label(:body_one) %>
     <%= form.text_area(:body_one, class: 'body-input') %>
+    <%= form.collection_select(:tag_ids, Tag.all, :id, :name, {}, { multiple: true }) %>
     <%= form.submit(class: 'test') %>
 <% end %>
 </div>

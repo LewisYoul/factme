@@ -102,11 +102,15 @@ RSpec.describe PostsController, type: :controller do
   end
 
   describe 'POST create' do
+    let(:tag_1) { Tag.create!(name: 'Rails') }
+    let(:tag_2) { Tag.create!(name: 'Angular') }
+
     let(:params) do
       {
         title: 'Test Title',
         synopsis: 'Synopsis',
-        body_one: 'Body one'
+        body_one: 'Body one',
+        tag_ids: [tag_1.id, tag_2.id]
       }
     end
 
@@ -117,6 +121,12 @@ RSpec.describe PostsController, type: :controller do
     context 'when the params are valid' do
       it 'creates a new post' do
         expect { post_create_action }.to change { Post.count }.by(1)
+      end
+
+      it 'assigns the passed tags to the post' do
+        post_create_action
+
+        expect(Post.last.tags).to contain_exactly(tag_1, tag_2)
       end
 
       it 'redirects to the index endpoint' do
