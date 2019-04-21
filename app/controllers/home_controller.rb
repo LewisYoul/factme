@@ -26,6 +26,6 @@ class HomeController < ApplicationController
   end
 
   def page
-    @page ||= params[:page]&.to_i || DEFAULT_PAGE 
+    @page ||= Services::PageParamParser.new(page_param: params[:page]).parse
   end
 end

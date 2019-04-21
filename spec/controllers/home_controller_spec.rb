@@ -11,8 +11,18 @@ RSpec.fdescribe HomeController, type: :controller do
     let!(:post_9) { Post.create! }
     let!(:post_10) { Post.create! }
 
+    let(:page_param_parser) do
+      instance_double(Services::PageParamParser, parse: 1)
+    end
+
+    before do
+      allow(Services::PageParamParser).to receive(:new).and_return(page_param_parser)
+    end
+
     it 'offsets the posts according to the current page param' do
-      get :index, params: { page: 2 }
+      allow(page_param_parser).to receive(:parse).and_return(2)
+
+      get :index
 
       expect(assigns(:posts))
         .to contain_exactly(
@@ -31,15 +41,23 @@ RSpec.fdescribe HomeController, type: :controller do
     end
 
     it 'assigns the previous page' do
-      get :index, params: { page: 2 }
+      allow(page_param_parser).to receive(:parse).and_return(2)
+
+      get :index
       
       expect(assigns(:previous_page)).to eq(1)
     end
 
-    it 'assigns the current page' do
+    it 'invokes the page param parser' do
       get :index
       
-      expect(assigns(:current_page)).to eq(1)
+      expect(Services::PageParamParser).to have_received(:new).with(page_param: nil)
+    end
+
+    it 'calls the page param parser' do
+      get :index
+      
+      expect(page_param_parser).to have_received(:parse).with no_args
     end
     
     it 'assigns the next page' do
@@ -54,12 +72,6 @@ RSpec.fdescribe HomeController, type: :controller do
         
         expect(assigns(:is_first_page)).to eq(true)
       end
-
-      it 'assigns the is_first_page variable as false' do
-        get :index, params: { page: 2 }
-        
-        expect(assigns(:is_first_page)).to eq(false)
-      end
     end
 
     context 'when the current page is not the last' do
@@ -71,25 +83,20 @@ RSpec.fdescribe HomeController, type: :controller do
     end
 
     context 'when the current page is the last' do
+      before do
+        allow(page_param_parser).to receive(:parse).and_return(2)
+      end
+
       it 'assigns the is_last_page variable as true' do
-        get :index, params: { page: 2 }
+        get :index
         
         expect(assigns(:is_last_page)).to eq(true)
       end
-    end
 
-    context 'when the page first loads (there is no page param)' do
-      it 'defaults to the first page' do
+      it 'assigns the is_first_page variable as false' do
         get :index
-
-        expect(assigns(:posts))
-          .to contain_exactly(
-            post_6,
-            post_7,
-            post_8,
-            post_9,
-            post_10
-          )
+        
+        expect(assigns(:is_first_page)).to eq(false)
       end
     end
   end
