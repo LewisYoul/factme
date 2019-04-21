@@ -1,6 +1,4 @@
 class HomeController < ApplicationController
-
-  DEFAULT_PAGE = 1
   PER_PAGE = 5
 
   def index
