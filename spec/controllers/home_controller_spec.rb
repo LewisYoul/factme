@@ -1,4 +1,4 @@
-RSpec.fdescribe HomeController, type: :controller do
+RSpec.describe HomeController, type: :controller do
   describe 'GET index' do
     let!(:post_1) { Post.create! }
     let!(:post_2) { Post.create! }

@@ -1,8 +1,4 @@
 class PostsController < ApplicationController
-  def index
-    @posts = Post.order(created_at: :desc)
-  end
-
   def new
     @post = Post.new
   end
@@ -11,7 +7,7 @@ class PostsController < ApplicationController
     new_post = Post.new(post_params)
 
     if new_post.save
-      redirect_to(:posts)
+      redirect_to(:root)
     else
       render(:new)
     end
@@ -25,7 +21,7 @@ class PostsController < ApplicationController
     post = Post.find(params[:id])
 
     if post.update(post_params)
-      redirect_to(:posts)
+      redirect_to(:root)
     else
       render(:edit)
     end

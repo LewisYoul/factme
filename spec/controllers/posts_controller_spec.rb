@@ -1,18 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe PostsController, type: :controller do
-  describe 'GET index' do
-    it 'returns 200 OK' do
-      get :index
-
-      expect(response).to have_http_status(:ok)
-    end
-
-    it 'renders the index template' do
-      expect(get :index).to render_template(:index)
-    end
-  end
-
   describe 'GET new' do
     it 'returns 200 OK' do
       get :new
@@ -85,8 +73,8 @@ RSpec.describe PostsController, type: :controller do
         )
     end
 
-    it 'redirects to the posts index controller action' do
-      expect(put :update, params: params).to redirect_to(:posts)
+    it 'redirects to the root url' do
+      expect(put :update, params: params).to redirect_to(:root)
     end
 
     context 'when the post fails to update' do
@@ -129,8 +117,8 @@ RSpec.describe PostsController, type: :controller do
         expect(Post.last.tags).to contain_exactly(tag_1, tag_2)
       end
 
-      it 'redirects to the index endpoint' do
-        expect(post_create_action).to redirect_to(:posts)
+      it 'redirects to the root url'do
+        expect(post_create_action).to redirect_to(:root)
       end
     end
 
