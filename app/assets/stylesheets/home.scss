@@ -13,6 +13,10 @@
     cursor: pointer;
 }
 
+h5.page-number {
+    color: grey;
+}
+
 p.post-synopsis {
     padding-top: 15px;
     padding-bottom: 5px;
@@ -35,6 +39,10 @@ a {
 
 a:hover {
     color: rgb(87, 105, 57)
+}
+
+button.arrows {
+    border: none;
 }
 
 .date-tag-row {

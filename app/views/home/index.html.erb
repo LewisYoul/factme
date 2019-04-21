@@ -30,4 +30,23 @@
         <hr>
       </div>
   <% end %>
+  <div class="flex-grid">
+    <div class="col">
+      <% if !@is_first_page %>
+        <a class="arrows" href="/?page=<%= @previous_page %>">
+          <%= fa_icon "2x chevron-left", class: 'icon' %>
+        </a>
+      <% end %>
+    </div>
+    <div class="col">
+      <h5 class="page-number">Page <%= @current_page %></h5>
+    </div>
+    <div class="col">
+      <% if !@is_last_page %>
+        <a class="arrows" href="/?page=<%= @next_page %>">
+          <%= fa_icon "2x chevron-right", class: 'icon' %>
+        </a>
+      <% end %>
+    </div>
+  <div>
 </div>
