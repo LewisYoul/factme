@@ -22,6 +22,7 @@ div.center-align {
 
 h1, h2, h3, h4, h5 {
   font-family: 'Roboto Slab', serif;
+  font-weight: bold;
 }
 
 .icon {
@@ -48,11 +49,8 @@ code {
   margin: 0 auto;
   margin-bottom: 40px;
   margin-top: 40px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
-
-.padding {
   padding: 30px 0px 30px 0px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .nav {
@@ -81,8 +79,8 @@ code {
 }
 
 p {
-  color: grey;
-  font-family: 'Times New Roman', Times, serif;
+  font-family: 'Roboto Slab', serif;
+  font-weight: 300;
 }
 
 input.test {
