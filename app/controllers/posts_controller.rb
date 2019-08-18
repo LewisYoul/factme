@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+  before_action :ensure_user_is_admin, except: :show
+
   def new
     @post = Post.new
   end
