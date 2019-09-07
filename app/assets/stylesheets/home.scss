@@ -37,7 +37,18 @@ a {
     margin-right: 8px;
 }
 
+.text-link {
+    font-size: 15px;
+    padding: 8px;
+    font-weight: bolder;
+}
+
+.text-link:hover {
+    background-color: #dbdbdb;
+}
+
 a:hover {
+    text-decoration: none;
     color: rgb(87, 105, 57)
 }
 
