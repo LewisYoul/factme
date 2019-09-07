@@ -55,6 +55,7 @@ code {
   
   &--navbar {
     @extend .container;
+    position: sticky;
     display: flex;
     justify-content: flex-end;
     margin-top: 0px;
