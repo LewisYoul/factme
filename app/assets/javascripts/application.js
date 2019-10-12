@@ -14,3 +14,9 @@
 //= require turbolinks
 //= require bootstrap-sprockets
 //= require_tree .
+
+var https = require('https');
+
+setInterval(function() {
+  https.get("https://fierce-temple-39819.herokuapp.com/");
+}, 300000);
