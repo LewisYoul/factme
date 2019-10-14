@@ -13,7 +13,7 @@
         <p class="post-synopsis"><%= post.synopsis %></p>
         <div class="date-tag-row">
           <div class="date-container">
-            <p class="date-synopsis"><strong><%= post.created_at.to_formatted_s(:long_ordinal) %></strong></p>
+            <p class="date-synopsis"><strong><%= post.created_at.strftime('%d %B %Y') %></strong></p>
           </div>
           <div class="tags-container">
             <% post.tags.each do |tag| %>
