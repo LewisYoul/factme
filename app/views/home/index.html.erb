@@ -7,42 +7,10 @@
     <a href="https://twitter.com/lewisyoul?lang=en-gb" class="icon-link"><%= fa_icon "2x twitter", class: 'icon' %></a>
     <hr>
   </div>
-  <% @posts.each do |post| %>
-      <div class="synopsis-wrapper">
-        <h2><%= link_to(post.title, post_path(post)) %></h1>
-        <p class="post-synopsis"><%= post.synopsis %></p>
-        <div class="date-tag-row">
-          <div class="date-container">
-            <p class="date-synopsis"><strong><%= post.created_at.strftime('%d %B %Y') %></strong></p>
-          </div>
-          <div class="tags-container">
-            <% post.tags.each do |tag| %>
-              <div class=tag-container>
-                <%= tag.name %>
-              </div>
-            <% end %>
-          </div>
-        </div>
-        <hr>
-      </div>
-  <% end %>
-  <div class="flex-grid">
-    <div class="col">
-      <% if !@is_first_page %>
-        <a class="arrows" href="/?page=<%= @previous_page %>">
-          <%= fa_icon "2x chevron-left", class: 'icon' %>
-        </a>
-      <% end %>
-    </div>
-    <div class="col">
-      <h5 class="page-number">Page <%= @current_page %></h5>
-    </div>
-    <div class="col">
-      <% if !@is_last_page %>
-        <a class="arrows" href="/?page=<%= @next_page %>">
-          <%= fa_icon "2x chevron-right", class: 'icon' %>
-        </a>
-      <% end %>
-    </div>
-  <div>
+  <list
+    :items="<%= @posts %>"
+    :page="<%= @page %>"
+    :per-page="<%= @per_page %>"
+    :number-of-pages="<%= @number_of_pages %>">
+  </list>
 </div>

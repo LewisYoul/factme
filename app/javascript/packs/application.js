@@ -20,12 +20,17 @@ console.log('Hello World from Webpacker')
 // app/javascript/packs/application.js
 
 import Vue from 'vue/dist/vue.esm.js';
-import App from '../components/app.vue'
+import TurbolinksAdapter from 'vue-turbolinks';
 
-document.addEventListener('DOMContentLoaded', () => {
+Vue.use(TurbolinksAdapter)
+
+import App from '../components/app.vue'
+import List from '../components/list.vue'
+
+document.addEventListener('turbolinks:load', () => {
   const app = new Vue({
     el: '#v_app',
-    components: { App }
+    components: { App, List }
   })
 
   console.log(app)

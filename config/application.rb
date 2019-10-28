@@ -24,8 +24,8 @@ module Factme
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
-
-    # Don't generate system test files.
+    ActiveModelSerializers.config.adapter = :json_api 
+    # Don't generate system test files. 
     config.generators.system_tests = nil
   end
 end
