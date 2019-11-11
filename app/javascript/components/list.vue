@@ -1,21 +1,9 @@
 <template>
   <div>
-    <div v-for="item in itemz">
-      <div class="synopsis-wrapper">
-        <h2><a :href="`/posts/${item.id}`">{{ item.title }}</a></h2>
-        <p class="post-synopsis">{{ item.synopsis }}</p>
-        <div class="date-tag-row">
-          <div class="date-container">
-            <p class="date-synopsis"><strong>{{ item.created_at }}</strong></p>
-          </div>
-          <div class="tags-container">
-            <div v-for="tag in item.tags" class=tag-container>
-              {{ tag.name }}
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <list-item
+      v-for="item in itemz"
+      :item="item">
+    </list-item>
     <div class="flex-grid">
       <div class="col">
         <div v-if="!isFirstPage" class="arrows" href="">
@@ -36,8 +24,11 @@
 
 <script>
   import axios from 'axios';
+  import ListItem from '../components/list-item'
 
   export default {
+
+    components: { ListItem },
 
     props: {
       items: { required: true, type: Array },
