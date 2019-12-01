@@ -20,7 +20,10 @@ class HomeController < ApplicationController
       format.json do
         posts = Post.order(created_at: :desc)
 
-        posts = posts.where('title ILIKE ?', "%#{params[:search]}%") if params[:search]
+        if params[:search]
+          posts = posts.joins(:tags)
+            .where('title ILIKE :search OR tags.name ILIKE :search', search: "%#{params[:search]}%")
+        end
         
         posts = posts
           .offset((params[:page].to_i - 1) * PER_PAGE)
