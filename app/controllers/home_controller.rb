@@ -19,10 +19,14 @@ class HomeController < ApplicationController
 
       format.json do
         posts = Post.order(created_at: :desc)
+
+        posts = posts.where('title ILIKE ?', "%#{params[:search]}%") if params[:search]
+        
+        posts = posts
           .offset((params[:page].to_i - 1) * PER_PAGE)
           .limit(PER_PAGE)
           .includes(:tags)
-          .map(&:serializable)
+          .map(&:serialize)
 
         render json: { items: posts, number_of_pages: number_of_pages }
       end

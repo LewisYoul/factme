@@ -4,4 +4,9 @@ class Post < ApplicationRecord
   def serializable
     PostSerializer.new(self)
   end
+
+
+  def serialize
+    serializable.to_h
+  end
 end

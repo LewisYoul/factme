@@ -1,5 +1,6 @@
 <template>
   <div>
+    <input v-on:keyup="search($event.target.value)" class="searchbar" type="text" placeholder="Search for a post..." name="search">
     <list-item
       v-for="item in itemz"
       :item="item">
@@ -62,7 +63,8 @@
     data: function () {
       return {
         itemz: this.items,
-        pageNum: this.page
+        pageNum: this.page,
+        debounce: null,
       }
     },
 
@@ -71,6 +73,18 @@
         const token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
         axios.defaults.headers.common['X-CSRF-Token'] = token
         axios.defaults.headers.common['Accept'] = 'application/json'
+      },
+
+      search(search) {
+        if (this.debounce) { clearTimeout(this.debounce) }
+
+        this.debounce = setTimeout(() => {
+          axios.get(`/?page=1&search=${search}&ajax=true`)
+            .then((res) => {
+              this.itemz = res.data.items
+            })
+            .catch(console.error);
+        }, 400);
       },
 
       goToNextPage () {
