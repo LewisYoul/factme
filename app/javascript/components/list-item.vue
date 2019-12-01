@@ -1,6 +1,6 @@
 <template>
   <div class="synopsis-wrapper">
-    <h2><a :href="`/posts/${item.id}`">{{ item.title }}</a></h2>
+    <h2 @click="goToPage" class="fake-anchor">{{ item.title }}</h2>
     <p class="post-synopsis">{{ item.synopsis }}</p>
     <div class="date-tag-row">
       <div class="date-container">
@@ -29,6 +29,10 @@
     },
 
     methods: {
+      goToPage() {
+        window.location.href = `/posts/${this.item.id}`;
+      },
+
       configureAxiosHeaders () {
         const token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
         axios.defaults.headers.common['X-CSRF-Token'] = token

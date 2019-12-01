@@ -20,6 +20,14 @@ h1, h2, h3, h4, h5, a {
   font-weight: bold;
 }
 
+.fake-anchor {
+  color: rgb(152, 185, 99);
+  cursor: pointer;
+  &:hover {
+    color: rgb(87, 105, 57);
+  }
+}
+
 .icon {
   color: #AFD275;
 }
