@@ -4,7 +4,7 @@ class HomeController < ApplicationController
   def index
     respond_to do |format|
       format.html do
-        @posts = Post.order(created_at: :desc)
+        @posts = Post.where(published: true).order(created_at: :desc)
           .offset(0)
           .limit(PER_PAGE)
           .includes(:tags)
@@ -18,7 +18,7 @@ class HomeController < ApplicationController
       end
 
       format.json do
-        posts = Post.order(created_at: :desc)
+        posts = Post.where(published: true).order(created_at: :desc)
 
         if params[:search]
           posts = posts.joins(:tags)
@@ -39,6 +39,6 @@ class HomeController < ApplicationController
   private
 
   def number_of_pages
-    (Post.count.to_f / PER_PAGE).ceil
+    (Post.where(published: true).count.to_f / PER_PAGE).ceil
   end
 end
