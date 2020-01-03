@@ -3,4 +3,4 @@
   image: 'projects/boing.png'
   play: 'https://lewisyoul.github.io/boing-phaser/'
   github: 'https://github.com/LewisYoul/boing-phaser'
-  synopsis: "A recreation of the classic Pong game built with the Phaser 3 javascript library. Inspiration and assets taken from the <a href='https://store.rpipress.cc/products/code-the-classics' target='_blank'>Code the Classics</a> book produced by the folks at Raspberry Pi."
+  synopsis: "A re-creation of the classic Pong game built with the Phaser 3 javascript library. Inspiration and assets taken from the <a href='https://store.rpipress.cc/products/code-the-classics' target='_blank'>Code the Classics</a> book produced by the folks at Raspberry Pi."
