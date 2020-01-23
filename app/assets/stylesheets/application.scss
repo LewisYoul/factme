@@ -22,6 +22,10 @@ h1, h2, h3, h4, h5, a {
 
 .vertical-line {
   border-left: 2px solid #AFD275;
+
+  @media only screen and (max-width : 420px) {
+    display: none;
+  }
 }
 
 .searchbar {
