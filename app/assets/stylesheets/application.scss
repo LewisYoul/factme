@@ -46,11 +46,19 @@ h1, h2, h3, h4, h5, a {
 
 .icon {
   color: #AFD275;
-}
+  
+  &:hover {
+    color: rgb(87, 105, 57);
+    cursor: pointer;
+  }
 
-.icon:hover {
-  color: rgb(87, 105, 57);
-  cursor: pointer;
+  &-small {
+    color: #AFD275;
+    font-size: 12px;
+    position: relative;
+    bottom: 4px;
+  }
+
 }
 
 code {
