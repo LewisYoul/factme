@@ -31,6 +31,11 @@ h1, h2, h3, h4, h5, a {
 .searchbar {
   margin-left: 60px;
   border: none;
+
+  @media only screen and (max-width : 420px) {
+    margin-left: 20px;
+  }
+
   &:focus {
     outline: none;
   }
