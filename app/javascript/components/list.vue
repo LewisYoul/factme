@@ -12,10 +12,10 @@
         </div>
       </div>
       <div class="col">
-        <h5 class="page-number">Page {{ pageNum }} of {{ numberOfPages }}</h5>
+        <h5 class="page-number">Page {{ pageNum }} of {{ numPagesToShow }}</h5>
       </div>
       <div class="col">
-        <div v-if="!isLastPage" class="arrows" href="">
+        <div v-if="hasNextPage" class="arrows" href="">
           <i @click="goToNextPage" class="fa fa-2x fa-chevron-right icon"></i>
         </div>
       </div>
@@ -57,6 +57,10 @@
 
       isLastPage () {
         return this.itemz.length < this.perPage
+      },
+
+      numPagesToShow() {
+        return this.numPages;
       }
     },
 
@@ -64,7 +68,9 @@
       return {
         itemz: this.items,
         pageNum: this.page,
+        numPages: this.numberOfPages,
         debounce: null,
+        hasNextPage: true
       }
     },
 
@@ -81,6 +87,8 @@
         this.debounce = setTimeout(() => {
           axios.get(`/?page=1&search=${search}&ajax=true`)
             .then((res) => {
+              this.numPages = res.data.number_of_pages
+              this.hasNextPage = res.data.has_next_page
               this.itemz = res.data.items
             })
             .catch(console.error);
@@ -91,6 +99,8 @@
         axios.get(`/?page=${this.nextPageNum}&ajax=true`)
           .then((res) => {
             this.itemz = res.data.items
+            this.numPages = res.data.number_of_pages
+            this.hasNextPage = res.data.has_next_page
             this.pageNum += 1;
           })
           .catch(console.error)
@@ -100,6 +110,8 @@
         axios.get(`/?page=${this.prevPageNum}&ajax=true`)
           .then((res) => {
             this.itemz = res.data.items
+            this.numPages = res.data.number_of_pages
+            this.hasNextPage = res.data.has_next_page
             this.pageNum -= 1;
           })
           .catch(console.error)
