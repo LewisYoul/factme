@@ -5,7 +5,10 @@
       v-for="item in itemz"
       :item="item">
     </list-item>
-    <div class="flex-grid">
+    <div v-if="itemz.length < 1" style="text-align: center">
+      <p>No posts found</p>
+    </div>
+    <div class="flex-grid" v-if="itemz.length > 0">
       <div class="col">
         <div v-if="!isFirstPage" class="arrows" href="">
           <i @click="goToPrevPage" class="fa fa-2x fa-chevron-left icon"></i>
