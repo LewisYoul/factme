@@ -19,8 +19,8 @@
           <h3><strong><%= project['title'] %></strong></h3>
         </div>
         <p><%= raw project['synopsis'] %></p>
-        <%= link_to project['play'], target: '_blank', title: "Play #{project['title']}", class: "icon-link" do %>
-          <%= fa_icon "2x gamepad", class: 'icon' %>
+        <%= link_to project['visit'], target: '_blank', title: "View #{project['title']}", class: "icon-link" do %>
+          <%= fa_icon "2x arrow-circle-right", class: 'icon' %>
         <% end %>
         <%= link_to project['github'], target: '_blank', title: "View the source code for #{project['title']}", class: "icon-link" do %>
           <%= fa_icon "2x github", class: 'icon' %>

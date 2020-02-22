@@ -1,12 +1,18 @@
 -
+  title: "Bouncy Text"
+  image: 'projects/bouncy-text.png'
+  visit: 'https://lewisyoul.github.io/text-path/'
+  github: 'https://github.com/LewisYoul/text-path'
+  synopsis: "A simple SVG graphic that transitions between two different text paths giving the impression of it bouncing up and down on the screen. Built with <a href='https://d3js.org/' target='_blank'>D3</a>."
+-
   title: "Pushin"
   image: 'projects/pushin.png'
-  play: 'https://lewisyoul.github.io/pushin/'
+  visit: 'https://lewisyoul.github.io/pushin/'
   github: 'https://github.com/LewisYoul/pushin'
   synopsis: "Push objects around the screen with Matter.JS and Phaser 3. Aims to serve as a base for further matter projects. Assets and tips from <a href='https://github.com/mikewesthad/phaser-3-tilemap-blog-posts'>this series of posts</a> by <a href='https://github.com/mikewesthad'>Michael Hadley</a>."
 -
   title: "Boing!"
   image: 'projects/boing.png'
-  play: 'https://lewisyoul.github.io/boing-phaser/'
+  visit: 'https://lewisyoul.github.io/boing-phaser/'
   github: 'https://github.com/LewisYoul/boing-phaser'
   synopsis: "A re-creation of the classic Pong game built with the Phaser 3 javascript library. Inspiration and assets taken from the <a href='https://store.rpipress.cc/products/code-the-classics' target='_blank'>Code the Classics</a> book produced by the folks at Raspberry Pi."
