@@ -24,19 +24,19 @@ export default {
 		 var arc = d3.arc()
     .innerRadius(radius - thickness)
     .outerRadius(radius)
-    .cornerRadius(12)
+    .cornerRadius(5)
 
      var arcOver = d3.arc()
     .innerRadius(radius - thickness)
     .outerRadius(radius * 1.1)
-    .cornerRadius(20)
+    .cornerRadius(5)
 
 		var pie = d3.pie()
     .value(function(d) { return d.width; })
     .sort(null)
     .startAngle( anglesRange * -1)
     .endAngle( anglesRange)
-    .padAngle(0.1)
+    .padAngle(0.2)
 
 		var svg = d3.select("#chart")
       .append('svg')
@@ -53,8 +53,8 @@ export default {
 
    	var options = g.append("path")
     	.attr("d", arc)
-      .style("fill", '#AFD275')
-      .style('stroke', '#AFD275')
+      .style("fill", 'grey')
+      .style('stroke', 'grey')
       .attr('id', (d, i) => {
         return `path${i}`
       })
@@ -88,7 +88,6 @@ export default {
       let option = d3.select(this);
 
       option.transition().duration(600)
-        .style('fill', '#AFD275')
         .attr('d', arcOver)
 
       let label = d3.select(`#label${e.index}`)
@@ -110,7 +109,7 @@ export default {
         .attr('class', 'donut-chart--label-center')
         .style('font-size', '24px')
         .attr('opacity', 0)
-        .style('fill', '#AFD275')
+        .style('fill', 'grey')
         .text(e.data.description)
 
       centerText.transition().duration(600).attr('opacity', 1)
@@ -121,11 +120,10 @@ export default {
 
       option.transition().duration(600)
         .attr('d', arc)
-        .style('fill', '#AFD275')
 
       let label = d3.select(`#label${e.index}`)
       
-      label.transition().duration(600).style('fill', '#ffffff').style('font-size', '16px')
+      label.transition().duration(600).style('font-size', '16px')
       .attr("dy", (d) => {
         if (d.endAngle < Math.PI) {
           return "5px"
