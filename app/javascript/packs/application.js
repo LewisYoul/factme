@@ -26,11 +26,12 @@ Vue.use(TurbolinksAdapter)
 
 import App from '../components/app.vue'
 import List from '../components/list.vue'
+import HomeMenu from '../components/home-menu.vue'
 
 document.addEventListener('turbolinks:load', () => {
   const app = new Vue({
     el: '#v_app',
-    components: { App, List }
+    components: { App, List, HomeMenu }
   })
 
   console.log(app)
