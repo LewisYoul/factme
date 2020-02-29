@@ -7,9 +7,9 @@ export default {
   mounted: function() {
   
    var data = [
-     { title: 'Blog', width: 30, description: 'I write stuff' },
-     { title: 'About', width: 30, description: 'Interesting things about me' },
-     { title: 'Projects', width: 30, description: 'Projects and collaborations' },
+     { title: 'Blog', width: 30, description: 'Writer' },
+     { title: 'About', width: 30, description: 'Person' },
+     { title: 'Projects', width: 30, description: 'Creator' },
     ];
    var text = "";
    var width = 800;
@@ -53,7 +53,7 @@ export default {
 
    	var options = g.append("path")
     	.attr("d", arc)
-      .style("fill", 'grey')
+      .style("fill", 'white')
       .style('stroke', 'grey')
       .attr('id', (d, i) => {
         return `path${i}`
@@ -77,62 +77,74 @@ export default {
         }
       })
       .style("text-anchor", "middle")
-      .style('fill', 'white')
+      .style('fill', 'grey')
       .text(function(d) {
         return d.data.title;
       });
 
-    let centerText
+      let centerText = svg.append("text")
+        .attr("text-anchor", "middle")
+        .attr('class', 'donut-chart--label-center')
+        .style('font-size', '48px')
+        .attr('opacity', 1)
+        .attr('dy', 0)
+        .style('fill', 'grey')
+        .text('Lewis Youl')
+
+      centerText
+        .append('svg:tspan')
+        .attr('x', 0)
+        .attr('dy', 50)
+        .style('font-size', '24px')
+        .attr('class', 'thespan')
+        .text('Software Developer')
+
+      let span = svg.selectAll('.thespan')
+
+    // let centerText
+
+    labels.on('mouseover', function(l, b, allls) {
+      let label = d3.select(this);
+      let option = d3.select(`#path${l.index}`);
+      console.log('in', l)
+      console.log('opt', option)
+      option.transition().duration(150)
+        .style('fill', 'grey')
+
+      label.transition().duration(150)
+        .style('fill', 'white')
+      
+      span.text(l.data.description)
+    })
 
     options.on('mouseover', function(e, b, allOptions) {
       let option = d3.select(this);
 
-      option.transition().duration(600)
-        .attr('d', arcOver)
+      option.transition().duration(150)
+        .style('fill', 'grey')
 
       let label = d3.select(`#label${e.index}`)
       
-      label.transition().duration(600)
-        .style('font-size', '24px')
-        .attr("dy", (d) => {
-        if (d.endAngle < Math.PI) {
-          return "-6px"
-        } else {
-          return "20px"
-        }
-      })
+      label.transition().duration(150)
+        .style('fill', 'white')
 
-      if (centerText) { centerText.remove() }
+      // centerText.selectAll('tspan').remove()
 
-      centerText = svg.append("text")
-        .attr("text-anchor", "middle")
-        .attr('class', 'donut-chart--label-center')
-        .style('font-size', '24px')
-        .attr('opacity', 0)
-        .style('fill', 'grey')
-        .text(e.data.description)
-
-      centerText.transition().duration(600).attr('opacity', 1)
+      span.text(e.data.description)
     })
 
     options.on('mouseleave', function(e, b, c) {
       let option = d3.select(this);
 
-      option.transition().duration(600)
-        .attr('d', arc)
+      option.transition().duration(150)
+        .style('fill', 'white')
 
       let label = d3.select(`#label${e.index}`)
       
-      label.transition().duration(600).style('font-size', '16px')
-      .attr("dy", (d) => {
-        if (d.endAngle < Math.PI) {
-          return "5px"
-        } else {
-          return "4px"
-        }
-      })
+      label.transition().duration(150)
+        .style('fill', 'grey')
 
-      centerText.transition().duration(600).attr('opacity', 0)
+      span.text('Software Developer')
     })
   },
 
@@ -149,7 +161,6 @@ export default {
 
   text {
     font-family: 'Roboto Slab', serif;
-    font-weight: bold;
     cursor: pointer;
   }
 </style>
