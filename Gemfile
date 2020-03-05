@@ -37,7 +37,7 @@ gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
 gem 'redis', '~> 4.0'
 gem 'rails-controller-testing'
-gem 'simple_form', '~> 3.2'
+gem 'simple_form', '~> 5.0'
 gem 'bootstrap-sass', '~> 3.3'
 gem 'redcarpet'
 gem 'rouge'
